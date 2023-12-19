@@ -1,6 +1,6 @@
 # Condorcet Method - Voting system
 
-This is a user-friendly voting system to determine a winner in a multi-candidate election. The Condorcet method compare each candidate in pairwise matchups (based on the number of times each candidate is preferred over another).
+This is a user-friendly voting system to determine a winner in a multi-candidate election. The Condorcet method compare each candidate in pairwise matchups (based on the number of times each candidate is preferred over another to avoid Condorcet paradox).
 
 ## Installation
 
@@ -48,7 +48,7 @@ The graphical representation underscores the following preferences:
 * Dewey is the preferred choice over Huey
 * Louie is the preferred choice over Huey
 
-Besides, if you take the path that passes through all the nodes, optimizing for the most favorable weights, you will end up with a ranking according to the Concordet method. In this case, the ranking would be : Dewey > Louie > Huey.
+Besides, if you take the path that passes through all the nodes, optimizing for the most favorable weights, you will end up with a ranking according to the Concordet method. In this case, it would be : `Dewey > Louie > Huey`.
 
 ## License
 
