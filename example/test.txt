@@ -1,0 +1,8 @@
+3        # Number of candidates
+Huey     # Name of candidate 1
+Dewey    # Name of candidate 2
+Louie    # Name of candidate 3
+3        # Number of voters
+1 2 3    # Voter 1's choices
+2 3 1    # Voter 2's choices
+3 2 1    # Voter 3's choices
