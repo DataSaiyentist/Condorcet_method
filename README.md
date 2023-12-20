@@ -50,7 +50,7 @@ The graphical representation underscores the following preferences:
 
 Besides, if you take the path that passes through all the nodes, optimizing for the most favorable weights, you will end up with a ranking according to the Concordet method. In this case, it would be : `Dewey > Louie > Huey`.
 
-It is recommended to be cautious when applying this method in situations with limited voters, and you may consider alternative approches or interpret the results with an awarness of the potential limitations associated with the Condorcet paradox.
+It is recommended to be cautious when applying this method in situations with limited voters, and you may consider alternative approches or interpret the (inconsistent or counterintuitive) results with an awarness of the potential limitations associated with the Condorcet paradox.
 
 ## License
 
