@@ -40,6 +40,7 @@ def get_votes(num_candidates: int):
     num_voters = int(input("\nHow many voters are there : "))
     # Initialize a matrix to store duel counts
     duel_counts = np.zeros((num_candidates, num_candidates))
+    defeat_counts = np.zeros((num_candidates, num_candidates))
 
     print(
         "For each voter, you will give his vote by order according to the candidate number"
@@ -66,6 +67,17 @@ def get_votes(num_candidates: int):
             for n in range(m + 1, num_candidates):
                 duel_counts[vote[m], vote[n]] += 1
                 duel_counts[vote[n], vote[m]] -= 1
+                defeat_counts[vote[n], vote[m]] += 1
+
+    for i in np.unique(duel_counts):
+        index = np.where(duel_counts == i)
+        index_list = list(zip(index[0], index[1]))
+
+        # If identical values are found
+        # give more weight to encounters with less defeat
+        if len(index_list) > 1:
+            for j in index_list:
+                duel_counts[j] = duel_counts[j] - 1 + 1 / (defeat_counts[j] + 1)
 
     return duel_counts
 
@@ -136,19 +148,19 @@ def plot_graph(
     }
 
     # Set up the layout for better visualization
-    disposition = nx.spring_layout(graph)
+    disposition = nx.spring_layout(graph, k=0.7, iterations=70)
     # Draw the graph (with labels and edge labels)
     nx.draw(
         graph,
         disposition,
         with_labels=False,
-        arrowsize=20,
-        node_size=700,
+        arrowsize=10,
+        node_size=300,
         node_color="skyblue",
     )
-    nx.draw_networkx_labels(graph, disposition, labels=labels, font_size=15)
+    nx.draw_networkx_labels(graph, disposition, labels=labels, font_size=10)
     nx.draw_networkx_edge_labels(
-        graph, disposition, edge_labels=weights, font_color="red"
+        graph, disposition, edge_labels=weights, font_color="red", font_size=5
     )
     plt.show()
 
